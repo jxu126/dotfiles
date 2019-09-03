@@ -167,6 +167,9 @@ set noshowmode " gets rid of -- INSERT -- as is redunant
 " Ctags
 set tags=./tags;
 
+" Language specific 
+source ~/dotfiles/config_files/vim/markdown.vim
+
 " Allow local overrides
 if !empty(glob('~/.local_vimrc'))
 endif
