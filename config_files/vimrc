@@ -12,13 +12,13 @@ set background=dark     " terminal theme is darkish hence
 set expandtab           " 4 tabs per space
 set shiftwidth=2        " less indenting
 set tabstop=2           " wow
-set scrolloff=5         " the floor is lava!
+set scrolloff=5         " keeps cursor more centered 
 set smarttab            " smart tabs and backspaces
 set cindent             " wicked smart!
-set showmatch           " match my brackets plox
+set showmatch           " match brakets
 set autoread            " keep on the lookout for changing files
 set t_Co=256            " more colors!
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.DS_Store
 set backspace=indent,eol,start
 set fillchars+=vert:\   " make the splitter prettier
 set mouse=a             " allow mouse to click on nerdtree files
@@ -34,14 +34,14 @@ set hls                 " allow highlighting when using *
 " Code folding
 set foldmethod=indent   "fold based on indent
 set foldnestmax=8      "deepest fold
-set nofoldenable        "dont fold by default
+set nofoldenable        "don't fold by default
 set foldlevel=1         "begin fold
 
 " Move swap file from beside the source file
 set swapfile
 set dir=~/.tmp
 
-" highlight whitespace at the end of line
+" highlight white space at the end of line
 autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
 autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
 highlight EOLWS ctermbg=red guibg=red
@@ -59,7 +59,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Javascript/Typescript
+" JavaScript/Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -73,7 +73,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ruanyl/vim-sort-imports'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-" Statusline
+" Status line
 Plug 'itchyny/lightline.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
@@ -93,8 +93,6 @@ let g:prettier#config#jsx_bracket_same_line = 'true'
 let g:prettier#config#arrow_parens = 'always'
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#autoformat = 1
-" flow|babylon|typescript|css|less|scss|json|graphql|markdown
-" Prettier default: babylon
 let g:prettier#config#parser = 'flow'
 let g:prettier#config#config_precedence = 'prefer-file'
 let g:prettier#config#prose_wrap = 'preserve'
@@ -119,13 +117,11 @@ source ~/dotfiles/config_files/vim/keybindings.vim
 
 " Lightline fixes when light line doesn't show if only one buffer
 set laststatus=2
-set noshowmode " gets rid of -- INSERT -- as is redunant
+set noshowmode " gets rid of -- INSERT -- as is redundant
 
 " Import sort
 " let g:import_sort_auto = 1
 
-" Go to definition
-nmap <silent> gd <Plug>(coc-definition)
 
 " Ctags
 set tags=./tags;
