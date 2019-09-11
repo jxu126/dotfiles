@@ -23,18 +23,13 @@ set backspace=indent,eol,start
 set fillchars+=vert:\   " make the splitter prettier
 set mouse=a             " allow mouse to click on nerdtree files
 set number relativenumber              " add line numbers
-set cursorcolumn        " vertical highlighting of cursor
+set cursorline
+set cursorcolumn
 
 vmap <C-c> "+y
 " allow mouse to copy to clipboard
 set clipboard=unnamed   " allow mouse to copy to clipboard
 set hls                 " allow highlighting when using *
-noremap <space> :
-" map space to :
-noremap : <NOP>
-" remove :
-nore ; :
-nnoremap <leader>. :CtrlPTag<cr>
 
 " Code folding
 set foldmethod=indent   "fold based on indent
@@ -51,8 +46,6 @@ autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
 autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
 highlight EOLWS ctermbg=red guibg=red
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
@@ -63,15 +56,8 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 
 " Navigation
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
-
-" Error handling -- might not need this based on coc
-Plug 'w0rp/ale'
 
 " Javascript/Typescript
 Plug 'leafgarland/typescript-vim'
@@ -113,46 +99,23 @@ let g:prettier#config#parser = 'flow'
 let g:prettier#config#config_precedence = 'prefer-file'
 let g:prettier#config#prose_wrap = 'preserve'
 
-" CtrlP settings
 
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_switch_buffer = 'h' " Open in new buffer
 let g:rustfmt_autosave = 1
 
 " Fuzzy settings
 nnoremap <C-l> :FZF<CR>
+nnoremap <C-p> :FZF<CR>
 
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 
 " Completion settings
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Coc settings
+source ~/dotfiles/config_files/vim/coc.vim
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" NERDTree settings
-let g:NERDTreeMouseMode=3 
-let g:NERDTreeShowHidden=1
-let g:NERDTreeIgnore = ['\.DS_Store$', '*.swp', '.git']
-autocmd StdinReadPre * let s:std_in=1
-
-" Ale settings
-let g:ale_sign_error = '⚡️' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '⚠️'
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-let g:ale_linters = {'javascript': ['eslint']}
-let g:ale_completion_enabled = 1
+" Key Bindings
+source ~/dotfiles/config_files/vim/keybindings.vim
 
 " Lightline fixes when light line doesn't show if only one buffer
 set laststatus=2
@@ -161,8 +124,8 @@ set noshowmode " gets rid of -- INSERT -- as is redunant
 " Import sort
 " let g:import_sort_auto = 1
 
-" Editor config settings -- requires a brew install editorconfig
-" let g:EditorConfig_core_mode = 'external_command'
+" Go to definition
+nmap <silent> gd <Plug>(coc-definition)
 
 " Ctags
 set tags=./tags;
