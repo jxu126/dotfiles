@@ -8,6 +8,9 @@ syntax on
 filetype plugin indent on
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
+set autoread
+set hidden              " hide the unsaved buffer
+set updatetime=500      " increase update time 
 set background=dark     " terminal theme is darkish hence
 set expandtab           " 4 tabs per space
 set shiftwidth=2        " less indenting
@@ -23,8 +26,12 @@ set backspace=indent,eol,start
 set fillchars+=vert:\   " make the splitter prettier
 set mouse=a             " allow mouse to click on nerdtree files
 set number relativenumber              " add line numbers
-set cursorline
 set cursorcolumn
+
+set cursorline
+" highlight CursorLine ctermbg=DarkGreen
+" autocmd InsertEnter * highlight CursorLine ctermbg=Blue
+" autocmd InsertLeave * highlight CursorLine ctermbg=DarkGreen
 
 vmap <C-c> "+y
 " allow mouse to copy to clipboard
@@ -54,7 +61,6 @@ call plug#begin('~/.vim/plugged')
 " Auto Complete
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
-
 " Navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -68,10 +74,14 @@ Plug 'mxw/vim-jsx'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
+" Formatters
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ruanyl/vim-sort-imports'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+"Auto save
+Plug '907th/vim-auto-save'
 
 " Status line
 Plug 'itchyny/lightline.vim'
@@ -99,6 +109,11 @@ let g:prettier#config#prose_wrap = 'preserve'
 
 
 let g:rustfmt_autosave = 1
+
+" Enable the auto save
+let g:auto_save = 1
+let g:auto_save_silent = 1
+let g:auto_save_write_all_buffers = 1
 
 " Fuzzy settings
 nnoremap <C-l> :FZF<CR>

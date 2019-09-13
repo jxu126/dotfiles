@@ -16,5 +16,8 @@
     "v": "action:vsplit"
   },
   "list.source.files.command": "fd",
-  "list.source.files.args": ["--type", "f"]
+  "list.source.files.args": ["--hidden", "--type", "f"],
+  "list.maxPreviewHeight": 32,
+  "list.previewSplitRight": true,
+  "suggest.enablePreview": true
 }
