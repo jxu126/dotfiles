@@ -62,6 +62,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Navigation
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -115,11 +116,6 @@ let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_write_all_buffers = 1
 
-" Fuzzy settings
-nnoremap <C-l> :FZF<CR>
-nnoremap <C-p> :FZF<CR>
-
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 
 " Completion settings
