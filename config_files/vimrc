@@ -48,6 +48,10 @@ set foldlevel=1         "begin fold
 set swapfile
 set dir=~/.tmp
 
+" Split
+set splitbelow " better defaults
+set splitright
+
 " highlight white space at the end of line
 autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
 autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
@@ -65,6 +69,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'francoiscabrol/ranger.vim'
 
 " JavaScript/Typescript
 Plug 'leafgarland/typescript-vim'
@@ -133,6 +138,10 @@ set noshowmode " gets rid of -- INSERT -- as is redundant
 " Import sort
 " let g:import_sort_auto = 1
 
+" Ranger Vim
+let g:ranger_map_keys = 0 " Do not use default keymapping.
+let g:ranger_replace_netrw = 1
+let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 
 " Ctags
 set tags=./tags;

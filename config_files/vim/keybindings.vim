@@ -21,3 +21,9 @@ nnoremap <C-H> <C-W><C-H>
 " Easier switching between buffers
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+
+" Ranger
+map <leader>rr :Ranger<CR>.
+map <leader>rt :RangerNewTab<CR>.
+
+
