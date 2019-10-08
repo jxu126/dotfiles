@@ -30,6 +30,9 @@ endfunction
 " Go to definition
 nmap <silent> gd <Plug>(coc-definition)
 
+" Rename
+nmap <leader>rn <Plug>(coc-rename)
+
 " navigation
 nnoremap <silent> <leader>f :<C-u>CocList files<cr>
 nnoremap <silent> <leader>h :<C-u>CocList cmdhistory<cr>

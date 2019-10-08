@@ -1,4 +1,3 @@
-
 " Navigation
 nnoremap <silent> <C-p> :<C-u>CocList files<cr>
 nnoremap <silent> <leader>h :<C-u>CocList cmdhistory<cr>
@@ -23,7 +22,6 @@ nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 " Ranger
-map <leader>rr :Ranger<CR>.
-map <leader>rt :RangerNewTab<CR>.
+nnoremap <leader>rr :Ranger<cr>
 
 
