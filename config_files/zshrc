@@ -1,0 +1,90 @@
+# zplug
+ZPLUG_HOME="$( brew --prefix )"/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+# Syntax highlighting bundle - https://github.com/zsh-users/zsh-syntax-highlighting
+zplug "zsh-users/zsh-syntax-highlighting"
+
+# auto complete suggestions - https://github.com/zsh-users/zsh-autosuggestions
+zplug "zsh-users/zsh-autosuggestions"
+
+# let zplug manage itself
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+
+# theme
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+
+# Install any plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load > /dev/null
+
+# enable vim mode 
+bindkey -v
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$HOME/.cargo/bin:$PATH"
+
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+if [ -f ~/.git-completion.zsh ]; then
+  . ~/.git-completion.zsh
+fi
+if [ -f ~/.local_zshrc ]; then
+ . ~/.local_zshrc
+fi
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  if [ -f ~/.linux_zshrc ]; then
+    . ~/.linux_zshrc
+  fi
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ -f ~/.mac_zshrc ]; then
+    . ~/.mac_zshrc
+  fi
+fi
+
+
+
+
+# make zsh history save
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+HISTIGNORE='ls:cat:clear:pwd'
+HISTCONTROL=erasedups
+HISTFILE=~/.zsh_history
+SAVEHIST=5000
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+
+autoload -U colors && colors
+export PS1="%* %{$fg[blue]%}%n%{$reset_color%}@%{$fg[green]%}%m:%{$reset_color%}%{$fg[red]%}%~%{$reset_color%}$ "
+
+
+alias ls='ls -GFh -a'
+
+alias gs="git status"
+
+export N_PREFIX="$HOME/n"
+export PATH=$N_PREFIX/bin:$PATH
+
+
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export FZF_DEFAULT_OPS="--extended"
+export FZF_DEFAULT_COMMAND="fd --hidden --type f --ignore-file ~/.ignore"
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
