@@ -36,9 +36,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-if [ -f ~/.git-completion.zsh ]; then
-  . ~/.git-completion.zsh
-fi
 if [ -f ~/.local_zshrc ]; then
  . ~/.local_zshrc
 fi
