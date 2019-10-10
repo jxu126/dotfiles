@@ -8,7 +8,7 @@
 
 dir=~/dotfiles/config_files                    # dotfiles directory
 olddir=~/dotfiles_old/config_files             # old dotfiles backup directory
-files="bashrc vimrc zshrc mac_bashrc linux_bashrc inputrc gitignore_global ignore"    # list of files/folders to symlink in homedir
+files="vimrc zshrc mac_zshrc linux_zshrc inputrc gitignore_global ignore"    # list of files/folders to symlink in homedir
 
 ##########
 
