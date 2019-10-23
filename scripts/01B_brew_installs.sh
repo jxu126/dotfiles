@@ -6,5 +6,5 @@ brew update
 brew install python3 rust
 brew install ranger highlight vim
 brew install editorconfig ctags
-brew install fd ag entr tree
-brew install enhancd rg zplug
+brew install fd ag entr tree jq bat
+brew install rg zplug tmux
