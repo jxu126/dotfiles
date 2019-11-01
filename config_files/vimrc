@@ -33,6 +33,8 @@ set cursorline
 " autocmd InsertEnter * highlight CursorLine ctermbg=Blue
 " autocmd InsertLeave * highlight CursorLine ctermbg=DarkGreen
 
+set incsearch           " match search while searching
+
 vmap <C-c> "+y
 " allow mouse to copy to clipboard
 set clipboard=unnamed   " allow mouse to copy to clipboard
