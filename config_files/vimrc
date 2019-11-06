@@ -10,7 +10,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 set autoread
 set hidden              " hide the unsaved buffer
-set updatetime=500      " increase update time 
+set updatetime=300      " increase update time 
 set background=dark     " terminal theme is darkish hence
 set expandtab           " 4 tabs per space
 set shiftwidth=2        " less indenting

@@ -29,6 +29,7 @@ endfunction
 
 " Go to definition
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
 
 " Rename
 nmap <leader>rn <Plug>(coc-rename)
