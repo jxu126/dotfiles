@@ -7,7 +7,6 @@
     "ts",
     "rust"
   ],
-  "coc.preferences.jumpCommand": "split",
   "diagnostic.errorSign": "🚫",
   "diagnostic.warningSign": "⚠️",
   "diagnostic.infoSign": "💁",
