@@ -160,3 +160,4 @@ unset -f bind-git-helper
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.fzf/shell/key-bindings.zsh
 
+

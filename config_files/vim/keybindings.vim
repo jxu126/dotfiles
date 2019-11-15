@@ -5,11 +5,8 @@ nnoremap <silent> <leader>h :<C-u>CocList cmdhistory<cr>
 " Extensions
 nnoremap <silent> <leader>de  :<C-u>CocList extensions<cr>
 
-noremap <space> :
 " map space to :
-noremap : <NOP>
-" remove :
-nore ; :
+noremap <space> :
 
 " Easier switching between splits
 nnoremap <C-J> <C-W><C-J>
