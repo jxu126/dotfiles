@@ -1,5 +1,5 @@
 # zplug
-ZPLUG_HOME="$( brew --prefix )"/opt/zplug
+ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
 
 # Syntax highlighting bundle - https://github.com/zsh-users/zsh-syntax-highlighting

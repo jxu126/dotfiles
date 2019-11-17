@@ -8,11 +8,12 @@ sudo apt-get install -y \
   python3 \
   ranger \
   tree \
+  fzf \
   vim \
   xclip \
   wget \
   silversearcher-ag \
   fd-find \
-  npm
+  ripgrep
 
 
