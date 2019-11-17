@@ -1,4 +1,8 @@
+
+# zplug
+ZPLUG_HOME=~/.zplug
+source $ZPLUG_HOME/init.zsh
+
 export EDITOR=/usr/bin/vim
-alias fd=fdfind
 alias pbcopy="xclip -sel clip"
 alias pbpaste='xclip -selection clipboard -o'

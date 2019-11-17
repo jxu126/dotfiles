@@ -16,5 +16,6 @@ sudo apt-get install -y \
   fd-find \
   ripgrep \
   tmux \
-  highlight
+  highlight \
+  yarn
 
