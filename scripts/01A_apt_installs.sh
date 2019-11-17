@@ -14,6 +14,7 @@ sudo apt-get install -y \
   wget \
   silversearcher-ag \
   fd-find \
-  ripgrep
-
+  ripgrep \
+  tmux \
+  highlight
 
