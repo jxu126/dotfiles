@@ -35,7 +35,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <leader>rn <Plug>(coc-rename)
 
 " navigation
-nnoremap <silent> <leader>f :<C-u>CocList files<cr>
+nnoremap <silent> <leader>b :<C-u>CocList buffers<cr>
 nnoremap <silent> <leader>h :<C-u>CocList cmdhistory<cr>
 
 " Show extension list
@@ -63,4 +63,22 @@ endfunction
 
 " Keymapping for grep word under cursor with interactive mode
 nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+
+" Lightline stuff
+function! CocCurrentFunction()
+  return get(b:, 'coc_current_function', '')
+endfunction
+
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'cocstatus': 'coc#status',
+  \   'currentfunction': 'CocCurrentFunction'
+  \ },
+  \ }
+
 
